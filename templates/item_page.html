@@ -11,8 +11,8 @@
     
     <h1>{{ item.name }} </h1>
     <div>
-        {% if item.quantity == 0 %} Товар отсутствует
-        {% else %} Количество: {{ item.quantity }}
+        {% if item.count == 0 %} Товар отсутствует
+        {% else %} Количество: {{ item.count }}
         {% endif %}
     </div>
     <br>

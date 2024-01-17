@@ -11,8 +11,6 @@ author = {
        "телефон": "8-923-600-01-02",
        "email": "vasya@mail.ru",
 }
-items = Item.objects.all()
-
 
 def home(request):
     context = {
@@ -38,17 +36,17 @@ def about(request):
 
 def get_item(request, item_id: int):
     """ По указанному item_id возращаем имя элемента и количество. """
-    for item in items:
-        if item['id'] == item_id:
-            context = {
-                "item": item
-            }
-            return render(request, "item_page.html", context)
+    item = Item.objects.get(id=item_id) 
+    if item !='' :
+        context = {
+            "item":  item
+        }
+        return render(request, "item_page.html", context)
     return HttpResponseNotFound(f'Item with id={item_id} not found')
 
 
 def get_items(request):
     context = {
-        "items": items
+        "items": Item.objects.all()
     }
     return render(request, "items_list.html", context)
