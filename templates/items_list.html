@@ -3,6 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title> Items list </title>
+    <style>
+        /* меню по горизонтали */
+        .menu {
+            padding: 10px;
+            overflow: auto;
+            width: fit-content;
+            margin:auto;
+        }
+    
+        .menu li {
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid;
+            float: left;
+            list-style: none;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -10,12 +27,18 @@
     </header>
     
     <h2>Список товаров</h2>
-
+    <ul class="menu">
     <ol>
         {% for item in items %}
-            <li><a href="/item/{{ item.id }}">{{ item.name }}</a></li>
+            <li>
+                <a href="/item/{{ item.id }}">{{ item.name }}</a></br>
+                Описание товара :</br>
+                {{ item.description }}
+            </li>
         {% endfor %}
     </ol>
-
+</ul>
 </body>
 </html>
+
+
