@@ -8,12 +8,12 @@
     <header>
         / <a href="/"> Home </a> / <a href="/items"> Items </a> / <a href="/about"> About </a>
     </header>
-    
+    <div>
+        Производитель: {{ item.brand }}
+    </div>
     <h1>{{ item.name }} </h1>
     <div>
-        {% if item.count == 0 %} Товар отсутствует
-        {% else %} Количество: {{ item.count }}
-        {% endif %}
+        Количество: {{ item.count | default:"Товар отсутствует"}}
     </div>
     <br>
     <a href="/items"> Назад к списку товаров</a>
