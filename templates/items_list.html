@@ -1,44 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title> Items list </title>
-    <style>
-        /* меню по горизонтали */
-        .menu {
-            padding: 10px;
-            overflow: auto;
-            width: fit-content;
-            margin:auto;
-        }
-    
-        .menu li {
-            padding: 10px;
-            margin: 10px;
-            border: 1px solid;
-            float: left;
-            list-style: none;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        / <a href="/"> Home </a> / <a href="/items"> Items </a> / <a href="/about"> About </a>
-    </header>
-    
-    <h2>Список товаров</h2>
-    <ul class="menu">
+
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home page{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/format.css'%}" type="text/css">
+<h2>Список товаров</h2>
+<ul class="menu">
     <ol>
         {% for item in items %}
             <li>
-                <a href="/item/{{ item.id }}">{{ item.name }}</a></br>
+                <a href="{%url "get_detail" item.id %}">{{ item.name }}</a>
                 Описание товара :</br>
                 {{ item.description }}
             </li>
         {% endfor %}
     </ol>
 </ul>
-</body>
-</html>
+{% endblock %}
 
 

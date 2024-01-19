@@ -1,0 +1,14 @@
+/* меню по горизонтали */
+.menu {
+    padding: 10px;
+    overflow: auto;
+    width: fit-content;
+    margin:auto;
+}
+.menu li {
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid;
+    float: left;
+    list-style: none;
+}
